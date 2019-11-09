@@ -1,7 +1,7 @@
 using System;
 
 
-namespace Task1
+namespace Task24
 {
 
     public static class Program
