@@ -11,21 +11,21 @@ namespace Task15
     {
         public static readonly string About = @"Условный оператор (запрещено использование циклов). Петр подключен к мобильному оператору Кекофон по тарифному плану за X рублей в месяц, куда включено Y Мб Интернет-трафика. Неиспользованные мегабайты в конце месяца обнуляются. В случае превышения Y Мб трафика, каждый следующий мегабайт стоит Z рублей. Известно, что Петр потратил в прошлом месяце T Мб трафика. Рассчитайте и выведите сколько потратил Петя денежных средств в прошлом месяце. Примечание и порядок ввода: X ∈ [1, 1000], Y ∈ [1, 500], Z ∈ [1, 100], T ∈ [1, 2048].";
 
-        public static void Main(string[] args)
-        {
-            Console.WriteLine(About);
-            double CostInMonth = GetNumber("Тарифный план в рублях: ", new TryParseHandler<double>(double.TryParse));
-            double MbInMonth = GetNumber("Тарифный план в мегабайтах: ", new TryParseHandler<double>(double.TryParse));
-            double MbTooLimitCost = GetNumber("Стоимость в рублях превышенного мегабайта: ", new TryParseHandler<double>(double.TryParse));
-            double Peter = GetNumber("Сколько потрачено за месяц мегабайт: ", new TryParseHandler<double>(double.TryParse));
-            if(Peter == 0)
-                Console.WriteLine($"У Петра не подключен тарифный план? Либо 0, либо {CostInMonth}.");
-            double MbTooMax = Peter - MbInMonth;
-            if(MbTooMax < 0)
-                Console.WriteLine(CostInMonth);
-            else
-                Console.WriteLine(CostInMonth + MbTooMax * MbTooLimitCost);
-        }
+public static void Main(string[] args)
+{
+    Console.WriteLine(About);
+    double CostInMonth = GetNumber("Тарифный план в рублях: ", new TryParseHandler<double>(double.TryParse));
+    double MbInMonth = GetNumber("Тарифный план в мегабайтах: ", new TryParseHandler<double>(double.TryParse));
+    double MbTooLimitCost = GetNumber("Стоимость в рублях превышенного мегабайта: ", new TryParseHandler<double>(double.TryParse));
+    double Peter = GetNumber("Сколько потрачено за месяц мегабайт: ", new TryParseHandler<double>(double.TryParse));
+    if(Peter == 0)
+        Console.WriteLine($"У Петра не подключен тарифный план? Либо 0, либо {CostInMonth}.");
+    double MbTooMax = Peter - MbInMonth;
+    if(MbTooMax < 0)
+        Console.WriteLine(CostInMonth);
+    else
+        Console.WriteLine(CostInMonth + MbTooMax * MbTooLimitCost);
+}
 
         /// <summary>
         /// Класс-делекат, который описывает интерфейс функций TryParse.
