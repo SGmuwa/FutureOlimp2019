@@ -24,10 +24,10 @@ namespace Task17
         {
             private readonly List<double> grades = new List<double>();
 
-			public void AddGrade(double grade) => grades.Add(grade);
+            public void AddGrade(double grade) => grades.Add(grade);
             public void PrintGrades() => Console.WriteLine(this);
             public double AvgGrade() => grades.Sum() / grades.Count;
             public override string ToString() => $"[{string.Join(", ", grades)}]";
-		}
+        }
     }
 }
