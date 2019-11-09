@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Task21
+namespace Task18
 {
 
     public static class Program
