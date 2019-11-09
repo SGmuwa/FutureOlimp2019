@@ -30,6 +30,6 @@ namespace Task1
             Power = power;
         }
 
-        public void Go() => $"Name: {Name}, Power: {Power}";
+        public void Go() => Console.WriteLine($"Name: {Name}, Power: {Power}");
     }
 }
