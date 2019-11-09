@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 
 
-namespace Task15
+namespace Task25
 {
 
     public static class Program
@@ -14,18 +14,29 @@ namespace Task15
         public static void Main(string[] args)
         {
             Console.WriteLine(About);
-            double CostInMonth = GetNumber("Тарифный план в рублях: ", new TryParseHandler<double>(double.TryParse));
-            double MbInMonth = GetNumber("Тарифный план в мегабайтах: ", new TryParseHandler<double>(double.TryParse));
-            double MbTooLimitCost = GetNumber("Стоимость в рублях превышенного мегабайта: ", new TryParseHandler<double>(double.TryParse));
-            double Peter = GetNumber("Сколько потрачено за месяц мегабайт: ", new TryParseHandler<double>(double.TryParse));
-            if(Peter == 0)
-                Console.WriteLine($"У Петра не подключен тарифный план? Либо 0, либо {CostInMonth}.");
-            double MbTooMax = Peter - MbInMonth;
-            if(MbTooMax < 0)
-                Console.WriteLine(CostInMonth);
-            else
-                Console.WriteLine(CostInMonth + MbTooMax * MbTooLimitCost);
-        }
+            long countTur = GetNumber("Количество туристов: ", new TryParseHandler<long>(long.TryParse));
+            long countGuide = GetNumber("Количество гидов: ", new TryParseHandler<long>(long.TryParse));
+            long countInBus = GetNumber("Вместимость человек в автобусе: ", new TryParseHandler<long>(long.TryParse));
+			if (countInBus < 3)
+				Console.WriteLine(0);
+			else
+				if (countGuide / 2 * countInBus - 2 <= countTur)
+					Console.WriteLine(0);
+				else
+				{
+                    long N = countTur / (countInBus - 2);
+                    long left = countTur % (countInBus - 2);
+                    if(left > 0)
+                    {
+                        N += 1;
+                        countGuide -= left;
+                    }
+                    countGuide -= 2 * N;
+                    if(countGuide > 0)
+                        N += (long)Math.Ceiling(countGuide / (double)countInBus);
+                    Console.WriteLine(N);
+				}
+		}
 
         /// <summary>
         /// Класс-делекат, который описывает интерфейс функций TryParse.
