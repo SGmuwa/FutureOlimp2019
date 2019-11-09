@@ -9,18 +9,16 @@ namespace Task25
 
     public static class Program
     {
-        public static readonly string About = @"Условный оператор (запрещено использование циклов). Петр подключен к мобильному оператору Кекофон по тарифному плану за X рублей в месяц, куда включено Y Мб Интернет-трафика. Неиспользованные мегабайты в конце месяца обнуляются. В случае превышения Y Мб трафика, каждый следующий мегабайт стоит Z рублей. Известно, что Петр потратил в прошлом месяце T Мб трафика. Рассчитайте и выведите сколько потратил Петя денежных средств в прошлом месяце. Примечание и порядок ввода: X ∈ [1, 1000], Y ∈ [1, 500], Z ∈ [1, 100], T ∈ [1, 2048].";
 
         public static void Main(string[] args)
         {
-            Console.WriteLine(About);
             long countTur = GetNumber("Количество туристов: ", new TryParseHandler<long>(long.TryParse));
             long countGuide = GetNumber("Количество гидов: ", new TryParseHandler<long>(long.TryParse));
             long countInBus = GetNumber("Вместимость человек в автобусе: ", new TryParseHandler<long>(long.TryParse));
 			if (countInBus < 3)
 				Console.WriteLine(0);
 			else
-				if (countGuide / 2 * countInBus - 2 <= countTur)
+				if (countGuide / 2 * (countInBus - 2) <= countTur)
 					Console.WriteLine(0);
 				else
 				{
