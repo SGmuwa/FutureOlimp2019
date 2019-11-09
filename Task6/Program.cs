@@ -2,7 +2,7 @@ using System;
 using System.Text;
 
 
-namespace Task4
+namespace Task6
 {
 
     public static class Program
