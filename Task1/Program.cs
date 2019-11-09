@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Numerics;
 using System.Linq;
 
+// Сортировка и поиск. Задается размер массива N и массив целых чисел. Необходимо отсортировать массив по не убыванию.
+
 namespace Task1
 {
     public static class Program
